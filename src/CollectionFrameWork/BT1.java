@@ -9,9 +9,15 @@ import java.util.stream.Collectors;
 
 public class BT1 {
     public static void main(String[] args) {
-        List<Integer> numbers = new ArrayList<>(Arrays.asList(1,3,4,7,9));
-        System.out.println("Nhập phần tử muốn thêm: ");
         Scanner sc = new Scanner(System.in);
+        List<Integer> numbers = new ArrayList<>();
+        System.out.println("Nhập vào số lượng phần tử của array list: ");
+        int n = sc.nextInt();
+        for(int i =0; i< n; i++){
+            numbers.add(sc.nextInt());
+        }
+
+        System.out.println("Nhập phần tử muốn thêm: ");
         int addNum = sc.nextInt();
         numbers.add(addNum);
 
