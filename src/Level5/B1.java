@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -76,6 +77,24 @@ public class B1 {
                 .collect(Collectors.groupingBy(map -> map.get(key)));
     }
 
+    //5.6
+    public static String trimAll(String s){
+        return s.trim().replaceAll("\\s+", " ");
+    }
+
+    //5.7
+    // mapKey: Sắp xếp danh sách đối tượng theo thứ tự khóa cho trước
+    public static List<Map<String, Integer>> mapKey(List<String> keys, List<Map<String, Integer>> collections) {
+        return collections.stream().map(map -> {
+            Map<String, Integer> sortedMap = new LinkedHashMap<>();
+            for (String key : keys) {
+                if (map.containsKey(key)) {
+                    sortedMap.put(key, map.get(key));
+                }
+            }
+            return sortedMap;
+        }).collect(Collectors.toList());
+    }
 
     public static void main(String[] args) {
         //5.1
@@ -111,6 +130,21 @@ public class B1 {
         
         System.out.println("Grouped by 'a': " + groupBy(objList2, "a"));
         System.out.println("Grouped by 'b': " + groupBy(objList2, "b"));
+
+
+        //5.6
+        String text = "    hello    world     ";
+        System.out.println(trimAll(text));
+
+
+        //5.7
+        List<String> keys = Arrays.asList("b", "a", "c");
+        List<Map<String, Integer>> collections = Arrays.asList(
+            Map.of("a", 1, "b", 1, "c", 2, "d", 4, "e", 5),
+            Map.of("a", 2, "b", 1, "c", 5, "d", 4, "e", 5),
+            Map.of("d", 4, "e", 5, "a", 22, "b", 11, "c", 51)
+        );
+        System.out.println("Mapped Keys: " + mapKey(keys, collections));
 
     }
 }
