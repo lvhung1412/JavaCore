@@ -56,12 +56,26 @@ public class B1 {
         return Arrays.copyOf(uniqObjects, size);
     }
 
+    // uniq: Loại bỏ các phần tử trùng trong mảng
+    // public static <T> List<T> uniq(List<T> list) {
+    //     return new ArrayList<>(new LinkedHashSet<>(list));
+    // }
+
     //5.4
     // uniq ArrayObject: Loại bỏ các phần tử trùng trong danh sách đối tượng
     public static List<Map<String, Integer>> uniqObjects(List<Map<String, Integer>> list) {
         Set<Map<String, Integer>> seen = new LinkedHashSet<>(list);
         return new ArrayList<>(seen);
     }
+
+    //5.5
+    // groupBy: Nhóm các đối tượng trong danh sách theo một trường chỉ định
+    public static Map<Integer, List<Map<String, Integer>>> groupBy(List<Map<String, Integer>> list, String key) {
+        return list.stream()
+                .filter(map -> map.containsKey(key))
+                .collect(Collectors.groupingBy(map -> map.get(key)));
+    }
+
 
     public static void main(String[] args) {
         //5.1
@@ -86,6 +100,17 @@ public class B1 {
             Map.of("y", 2, "x", 1)
         );
         System.out.println("Unique Objects: " + uniqObjects(objList));
+
+
+        //5.5
+        List<Map<String, Integer>> objList2 = Arrays.asList(
+            Map.of("a", 1, "b", 2),
+            Map.of("a", 1, "b", 3),
+            Map.of("a", 2, "b", 2)
+        );
+        
+        System.out.println("Grouped by 'a': " + groupBy(objList2, "a"));
+        System.out.println("Grouped by 'b': " + groupBy(objList2, "b"));
 
     }
 }
