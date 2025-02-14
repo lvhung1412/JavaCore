@@ -3,6 +3,8 @@ package Level5;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -96,6 +98,31 @@ public class B1 {
         }).collect(Collectors.toList());
     }
 
+    //5.8
+    public static List<Map<String, Integer>> switchOrder(List<Map<String,Integer>> list, int id, int numberOfOrder){
+        // sắp xếp theo order
+        list.sort(Comparator.comparingInt(map -> map.get("order")));
+
+        // tìm kiếm
+        Map<String, Integer> target = list.stream()
+            .filter(map -> map.get("id") == id)
+            .findFirst()
+            .orElse(null);
+
+        // không có thì trả về list ban đầu
+        if(target == null) return list;
+
+        // xóa cái cũ và thêm cái mới
+        list.remove(target);
+        list.add(numberOfOrder, target);
+
+        // cập nhật lại order
+        for(int i = 0; i< list.size(); i++){
+            list.get(i).put("order",i);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         //5.1
         Integer[] arr = {1, 2, 3, 4, 5};
@@ -146,5 +173,13 @@ public class B1 {
         );
         System.out.println("Mapped Keys: " + mapKey(keys, collections));
 
+
+        List<Map<String, Integer>> orderList = new ArrayList<>(Arrays.asList(
+            new HashMap<>(Map.of("id", 10, "order", 0)),
+            new HashMap<>(Map.of("id", 12, "order", 1)),
+            new HashMap<>(Map.of("id", 9, "order", 2)),
+            new HashMap<>(Map.of("id", 11, "order", 3))
+        ));
+        System.out.println("Switched Order: " + switchOrder(orderList, 9, 1));
     }
 }
