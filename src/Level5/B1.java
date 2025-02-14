@@ -1,6 +1,14 @@
 package Level5;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class B1 {
 
@@ -48,6 +56,12 @@ public class B1 {
         return Arrays.copyOf(uniqObjects, size);
     }
 
+    //5.4
+    // uniq ArrayObject: Loại bỏ các phần tử trùng trong danh sách đối tượng
+    public static List<Map<String, Integer>> uniqObjects(List<Map<String, Integer>> list) {
+        Set<Map<String, Integer>> seen = new LinkedHashSet<>(list);
+        return new ArrayList<>(seen);
+    }
 
     public static void main(String[] args) {
         //5.1
@@ -64,5 +78,14 @@ public class B1 {
         //5.3
         Integer[] arrIniq = {1, 2, 3, 2, 4};
         System.out.println(Arrays.toString(uniq(arrIniq)));
+
+        //5.4
+        List<Map<String, Integer>> objList = Arrays.asList(
+            Map.of("x", 1, "y", 2),
+            Map.of("x", 2, "y", 1),
+            Map.of("y", 2, "x", 1)
+        );
+        System.out.println("Unique Objects: " + uniqObjects(objList));
+
     }
 }
