@@ -126,17 +126,17 @@ public class B1 {
     //5.9
     public static Map<String, Integer> sumAll(List<Map<String, Object>> list){
         Map<String, Integer> map = new HashMap<>();
-            for(Map<String, Object> item : list){
-                for(Map.Entry<String, Object> entry: item.entrySet()){
-                    String key = entry.getKey();
-                    Object value = entry.getValue();
+        for(Map<String, Object> item : list){
+            for(Map.Entry<String, Object> entry: item.entrySet()){
+                String key = entry.getKey();
+                Object value = entry.getValue();
 
-                    int valueInteger = (value instanceof Number) ? ((Number) value).intValue(): 
-                                        (value instanceof String) ? Integer.parseInt(value.toString()) : 0;
+                int valueInteger = (value instanceof Number) ? ((Number) value).intValue(): 
+                                    (value instanceof String) ? Integer.parseInt(value.toString()) : 0;
 
-                    map.put(key, map.getOrDefault(key, 0) + valueInteger);
-                }
+                map.put(key, map.getOrDefault(key, 0) + valueInteger);
             }
+        }
         return map;
     }
 
