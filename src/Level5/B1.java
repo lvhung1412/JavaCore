@@ -123,6 +123,23 @@ public class B1 {
         return list;
     }
 
+    //5.9
+    public static Map<String, Integer> sumAll(List<Map<String, Object>> list){
+        Map<String, Integer> map = new HashMap<>();
+            for(Map<String, Object> item : list){
+                for(Map.Entry<String, Object> entry: item.entrySet()){
+                    String key = entry.getKey();
+                    Object value = entry.getValue();
+
+                    int valueInteger = (value instanceof Number) ? ((Number) value).intValue(): 
+                                        (value instanceof String) ? Integer.parseInt(value.toString()) : 0;
+
+                    map.put(key, map.getOrDefault(key, 0) + valueInteger);
+                }
+            }
+        return map;
+    }
+
     public static void main(String[] args) {
         //5.1
         Integer[] arr = {1, 2, 3, 4, 5};
@@ -174,6 +191,7 @@ public class B1 {
         System.out.println("Mapped Keys: " + mapKey(keys, collections));
 
 
+        // 5.8
         List<Map<String, Integer>> orderList = new ArrayList<>(Arrays.asList(
             new HashMap<>(Map.of("id", 10, "order", 0)),
             new HashMap<>(Map.of("id", 12, "order", 1)),
@@ -181,5 +199,15 @@ public class B1 {
             new HashMap<>(Map.of("id", 11, "order", 3))
         ));
         System.out.println("Switched Order: " + switchOrder(orderList, 9, 1));
+
+        //5.9
+        List<Map<String, Object>> arr9 = List.of(
+            Map.of("a", 2, "b", 10),
+            Map.of("a", 12, "c", 11),
+            Map.of("a", 8, "b", 14, "d", 20),
+            Map.of("a", "8") // String nhưng là số nên sẽ chuyển thành 8
+        );
+
+        System.out.println(sumAll(arr9));
     }
 }
