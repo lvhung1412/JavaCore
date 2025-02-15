@@ -23,6 +23,6 @@ public class B1 {
                 secondMin = num;
             }
         }
-        System.out.println("Phần tử lớn thứ 2 trong mảng là: " + secondMin);
+        System.out.println("Phần tử nhỏ thứ 2 trong mảng là: " + secondMin);
     }
 }
