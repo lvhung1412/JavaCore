@@ -32,6 +32,7 @@ public class JavaCore1 {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         System.out.println("Chuỗi vừa nhập là: " + str+ " có độ dài là: " + str.length());
+        sc.close();
     }
 
     public static void level1B3(){
@@ -39,6 +40,7 @@ public class JavaCore1 {
         Scanner sc = new Scanner(System.in);
         double a = sc.nextDouble();
         System.out.println("Bình phương của số vừa nhập là: " + Math.pow(a, 2));
+        sc.close();
     }
 
     public static void level1B4(){
@@ -58,6 +60,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Phần tử lớn nhất trong mảng là: " + max);
+        sc.close();
     }
 
     public static void level1B5(){
@@ -77,6 +80,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Chuỗi có độ dài nhỏ nhất trong mảng là: " + minString);
+        sc.close();
     }
 
     public static void level1B6(){
@@ -102,6 +106,7 @@ public class JavaCore1 {
         for(int i = 0; i < n; i++){
             System.out.print(arr[i] + " ");
         }
+        sc.close();
     }
 
     public static void level1B7(){
@@ -129,6 +134,7 @@ public class JavaCore1 {
         for(int i = 0; i < n; i++){
             System.out.print(arr[i] + " ");
         }
+        sc.close();
     }
 
     public static void level1B8(){
@@ -157,6 +163,7 @@ public class JavaCore1 {
         } else {
             System.out.println(arr[n/2]);
         }
+        sc.close();
     }
 
     public static void level1B9(){
@@ -165,6 +172,7 @@ public class JavaCore1 {
         String s = sc.nextLine();
         String[] arr = s.split(" ");
         System.out.println("Số lượng từ trong chuỗi: " + arr.length);
+        sc.close();
     }
 
     public static void level1B10(){
@@ -185,6 +193,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Số lượng chuỗi có chứa ký tự 'a': " + count);
+        sc.close();
     }
 
     // LEVEL2
@@ -209,6 +218,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Phần tử lớn thứ 2 trong mảng là: " + secondMax);
+        sc.close();
     }
 
     // bài 2.2
@@ -233,6 +243,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Từ dài nhất trong mảng là: " + longestWord);
+        sc.close();
     }
 
     // Bài 2.3
@@ -266,6 +277,7 @@ public class JavaCore1 {
         System.out.println("Nhập vào chuỗi thứ hai: ");
         String s2 = sc.nextLine();
         System.out.println("Chuỗi con chung dài nhất là: " + maxCommStr(s1, s2));
+        sc.close();
     }
 
     // bài 2.4
@@ -285,6 +297,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Tổng các phần tử chia hết cho 3 và 5 là: " + sum);
+        sc.close();
     }
 
     // bài 2.5
@@ -307,6 +320,7 @@ public class JavaCore1 {
             arr[i] = sc.nextInt();
         }
         System.out.println("Tổng lớn nhất của dãy con liên tục là: " + maxSum(arr));
+        sc.close();
     }
 
     // LEVEL 3
@@ -331,6 +345,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Phần tử nhỏ thứ 2 trong mảng là: " + secondMin);
+        sc.close();
     }
 
     // bài 3.2
@@ -355,6 +370,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Khoảng lớn nhất là: " + (max-min));
+        sc.close();
     }
 
     // bài 3.3
@@ -385,6 +401,7 @@ public class JavaCore1 {
             maxLIS = Math.max(maxLIS, dp[i]);
         }
         System.out.println("Độ dài dãy con tăng dài nhất là: " + maxLIS);
+        sc.close();
     }
 
     // bài 3.4
@@ -426,6 +443,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Hai chuỗi trùng lặp nhiều nhất là: " + arr[index1] + " và " + arr[index2]);
+        sc.close();
     }
     
     // bài 3.5
@@ -451,6 +469,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Số nguyên dương nhỏ nhất không thể tạo thành từ các phần tử trong dãy là: " + smallest);
+        sc.close();
     }
 
     // BÀI 3.7
@@ -487,6 +506,7 @@ public class JavaCore1 {
         } else {
             System.out.println(arr3[n/2]);
         }
+        sc.close();
     }
 
     // bài 3.10
@@ -523,6 +543,7 @@ public class JavaCore1 {
 
         System.out.println("Danh sách sau khi sắp xếp:");
         System.out.println(Arrays.toString(s));
+        sc.close();
     }
 
     // LEVEL 4
@@ -548,6 +569,7 @@ public class JavaCore1 {
             }
         }
         System.out.println("Số bước cần để sắp xếp là: "+ count);
+        sc.close();
     }
 
     // bài 4.2
@@ -592,6 +614,7 @@ public class JavaCore1 {
 
         int result = countSubsetsWithSum(arr, target);
         System.out.println("Số tập con có tổng bằng target là: " + result);
+        sc.close();
     }
 
     // bài 4.3
@@ -636,6 +659,7 @@ public class JavaCore1 {
             s = result;
         }
         System.out.println(result.length());
+        sc.close();
     }
 
     // bài 4.6
@@ -652,6 +676,7 @@ public class JavaCore1 {
         Arrays.sort(arr);
         System.out.println("Tích 3 phần tử bất kỳ lớn nhất là: "+ Math.max(arr[n - 1] * arr[n - 2] * arr[n - 3], 
         arr[0] * arr[1] * arr[n - 1]));
+        sc.close();
     }
 
     // bài 4.7
@@ -689,6 +714,7 @@ public class JavaCore1 {
         for(String s: arrStrings){
             System.out.println(s+" ");
         }
+        sc.close();
     }
 
     // bài 4.9
@@ -715,6 +741,7 @@ public class JavaCore1 {
             arr[i] = sc.nextInt();
         }
         System.out.println("Mảng con tăng 1 dài nhất là: " + getLongestIncreasingSubOfNumbers(arr));
+        sc.close();
     }
 
     // bài 4.10
@@ -775,6 +802,7 @@ public class JavaCore1 {
         } else {
             System.out.println("Không có cặp chuỗi nào có phần giao nhau dài ít nhất " + k + " ký tự.");
         }
+        scanner.close();
     }
 
     //LEVEL 5
